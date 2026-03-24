@@ -33,7 +33,7 @@ do
 
             Console.WriteLine(" ");
             Console.WriteLine("Ingresa duración (en minutos):  ");
-            double duracionContenido;
+            double duracionContenido = double.Parse (Console.ReadLine());
 
             Console.WriteLine(" ");
             Console.WriteLine("Ingrese clasificación. ");
@@ -43,7 +43,7 @@ do
             Console.WriteLine(" ");
             Console.WriteLine("Ingrese hora programada. ");
             Console.WriteLine("0-23: ");
-            int horaContenido;
+            int horaContenido = int.Parse(Console.ReadLine());
 
             Console.WriteLine(" ");
             Console.WriteLine("Ingrese nivel de producción: ");
