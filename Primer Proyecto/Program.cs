@@ -25,6 +25,10 @@ do
     {
         case 1: //evaluar nuevo contenido
 
+            total++;
+
+            bool valido = true;
+            string razon = "";
 
             Console.WriteLine(" ");
             Console.WriteLine("Ingresa tipo de contenido. ");
@@ -33,7 +37,7 @@ do
 
             Console.WriteLine(" ");
             Console.WriteLine("Ingresa duración (en minutos):  ");
-            double duracionContenido = double.Parse (Console.ReadLine());
+            double duracionContenido = double.Parse(Console.ReadLine());
 
             Console.WriteLine(" ");
             Console.WriteLine("Ingrese clasificación. ");
@@ -50,6 +54,90 @@ do
             Console.WriteLine("bajo, medio o alto: ");
             string produccionContenido = Console.ReadLine().ToLower();
 
+
+            
+
+            if (clasificacionContenido == "+13")
+            {
+                if (!(horaContenido >= 6 && horaContenido <= 22)) //no puede ser diferente
+                {
+                    valido = false;
+                    razon = "Horario invalido para +13";
+                }
+            }
+
+            if (clasificacionContenido == "+18")
+            {
+                if (!(horaContenido >= 22 && horaContenido <= 5))
+                {
+                    valido = false;
+                    razon = "Horario invalido para +18";
+                }
+            }
+
+            //todo publico, cualquier hora.
+
+
+
+
+            if (tipoDeContenido == "pelicula" || tipoDeContenido == "película")
+            {
+                if (!(duracionContenido >= 60 && duracionContenido <= 180))
+                {
+                    valido = false;
+                    razon = "Duración invalida para película";
+                }
+            }
+
+            if (tipoDeContenido == "serie")
+            {
+                if (!(duracionContenido >= 20 && duracionContenido <= 90))
+                {
+                    valido = false;
+                    razon = "Duración invalida para serie";
+                }
+            }
+
+            if (tipoDeContenido == "documental")
+            {
+                if (!(duracionContenido >= 30 && duracionContenido <= 120))
+                {
+                    valido = false;
+                    razon = "Duración invalida para documental";
+                }
+            }
+
+            if (tipoDeContenido == "evento en vivo")
+            {
+                if (!(duracionContenido >= 30 && duracionContenido <= 240))
+                {
+                    valido = false;
+                    razon = "Duración invalida para evento";
+                }
+            }
+
+
+
+
+            if (produccionContenido == "bajo")
+            {
+                if (clasificacionContenido == "+18")
+                {
+                    valido = false;
+                    razon = "Producción baja no valida para +18";
+                }
+            }
+
+
+
+            if (!valido)
+            {
+                rechazados++;
+                Console.WriteLine(" ");
+                Console.WriteLine("Rechazado. ");
+                Console.WriteLine("Razón: " + razon);
+                break;
+            }
 
 
             break;
