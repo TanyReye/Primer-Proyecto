@@ -20,3 +20,18 @@ do
     Console.WriteLine("4. Reiniciar estadísticas. ");
     Console.WriteLine("5. Salir. ");
     Console.WriteLine(" ");
+
+    switch (menu)
+    {
+        case 1: //evaluar nuevo contenido
+            break;
+
+        case 2: //mostrar reglas del sistema
+            break;
+        case 3: //mostrar estadísticas de la sesión
+            break;
+        case 4: //reiniciar
+            break;
+
+    }
+    } while (menu != 5);
