@@ -24,12 +24,51 @@ do
     switch (menu)
     {
         case 1: //evaluar nuevo contenido
+
+
+            Console.WriteLine(" ");
+            Console.WriteLine("Ingresa tipo de contenido. ");
+            Console.WriteLine("Película, serie, documental o evento en vivo: ");
+            string tipoDeContenido = Console.ReadLine().ToLower();
+
+            Console.WriteLine(" ");
+            Console.WriteLine("Ingresa duración (en minutos):  ");
+            double duracionContenido;
+
+            Console.WriteLine(" ");
+            Console.WriteLine("Ingrese clasificación. ");
+            Console.WriteLine("Todo público, +13 o +18: ");
+            string clasificacionContenido = Console.ReadLine().ToLower();
+
+            Console.WriteLine(" ");
+            Console.WriteLine("Ingrese hora programada. ");
+            Console.WriteLine("0-23: ");
+            int horaContenido;
+
+            Console.WriteLine(" ");
+            Console.WriteLine("Ingrese nivel de producción: ");
+            Console.WriteLine("bajo, medio o alto: ");
+            string produccionContenido = Console.ReadLine().ToLower();
+
+
+
             break;
+
+
+
 
         case 2: //mostrar reglas del sistema
             break;
+
+
+
+
         case 3: //mostrar estadísticas de la sesión
             break;
+
+
+
+
         case 4: //reiniciar
             break;
 
