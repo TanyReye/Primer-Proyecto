@@ -247,12 +247,54 @@ do
 
 
         case 2: //mostrar reglas del sistema
+            Console.WriteLine(" "); //aca pondre las reglas al agregar todo
             break;
 
-
+            
 
 
         case 3: //mostrar estadísticas de la sesión
+
+            Console.WriteLine(" ");
+            Console.WriteLine("Total evaluados: " + total);
+            Console.WriteLine("Publicados: " + publicados);
+            Console.WriteLine("Rechazados: " + rechazados);
+            Console.WriteLine("En revisión: " + revision);
+
+            string predominante = "Bajo";
+
+            if (impactoAlto > impactoMedio && impactoAlto > impactoBajo)
+            {
+                predominante = "Alto";
+            }
+            else if (impactoMedio > impactoBajo)
+            {
+                predominante = "Medio";
+            }
+
+
+
+
+            Console.WriteLine("Impacto predominante: " + predominante);
+
+            double porcentaje = 0;
+
+            if (total > 0)
+            {
+                porcentaje = (publicados * 100.0)/total;
+            }
+
+            Console.WriteLine("Porcentaje de aprobación: " + porcentaje + "%");
+            Console.WriteLine(" ");
+
+
+
+
+            for (int i = 0; i < 1; i++)
+            {
+                Console.WriteLine("Fin de estadísticas. ");
+            }
+
             break;
 
 
