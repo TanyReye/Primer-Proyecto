@@ -301,6 +301,20 @@ do
 
 
         case 4: //reiniciar
+
+
+            total = 0;
+            publicados = 0;
+            rechazados = 0;
+            revision = 0;
+            impactoAlto = 0;
+            impactoMedio = 0;
+            impactoBajo = 0; //para reinciar todos los datos
+
+            Console.WriteLine(" ");
+            Console.WriteLine("Datos reiniciados. ");
+
+
             break;
 
     }
