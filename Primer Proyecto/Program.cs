@@ -28,7 +28,10 @@ do
             total++;
 
             bool valido = true;
-            string razon = "";
+            bool ajuste = false;
+            string razon = " ";
+
+            //solocitar datos
 
             Console.WriteLine(" ");
             Console.WriteLine("Ingresa tipo de contenido. ");
@@ -55,23 +58,39 @@ do
             string produccionContenido = Console.ReadLine().ToLower();
 
 
-            
+            //reglas de publicacion
 
-            if (clasificacionContenido == "+13")
+            if (clasificacionContenido == "+13") 
             {
                 if (!(horaContenido >= 6 && horaContenido <= 22)) //no puede ser diferente
                 {
-                    valido = false;
-                    razon = "Horario invalido para +13";
+                    if (horaContenido == 5 || horaContenido == 23)
+                    {
+                        ajuste = true;
+                        razon = "Ajustar horario para +13";
+                    }
+                    else
+                    {
+                        valido = false;
+                        razon = "Horario invalido para +13";
+                    }
+                 }
                 }
-            }
 
             if (clasificacionContenido == "+18")
             {
-                if (!(horaContenido >= 22 && horaContenido <= 5))
+               if (!(horaContenido >= 22 && horaContenido <= 5))
                 {
-                    valido = false;
-                    razon = "Horario invalido para +18";
+                    if (horaContenido == 21 || horaContenido == 6)
+                    {
+                        ajuste = true;
+                        razon = "Ajustar horario para +18";
+                    }
+                    else
+                    {
+                        valido = false;
+                        razon = "Horario invalido para +18";
+                    }
                 }
             }
 
@@ -84,8 +103,16 @@ do
             {
                 if (!(duracionContenido >= 60 && duracionContenido <= 180))
                 {
-                    valido = false;
-                    razon = "Duración invalida para película";
+                    if (duracionContenido >= 50 && duracionContenido <= 190)
+                    {
+                        ajuste = true;
+                        razon = "Ajustar duración para película";
+                    }
+                    else
+                    {
+                        valido = false;
+                        razon = "Duración invalida para película";
+                    }
                 }
             }
 
@@ -93,8 +120,16 @@ do
             {
                 if (!(duracionContenido >= 20 && duracionContenido <= 90))
                 {
-                    valido = false;
-                    razon = "Duración invalida para serie";
+                    if (duracionContenido >= 15 && duracionContenido <= 100)
+                    {
+                        ajuste = true;
+                        razon = "Ajustar duración para serie";
+                    }
+                    else
+                    {
+                        valido = false;
+                        razon = "Duración invalida para serie";
+                    }
                 }
             }
 
@@ -102,8 +137,16 @@ do
             {
                 if (!(duracionContenido >= 30 && duracionContenido <= 120))
                 {
-                    valido = false;
-                    razon = "Duración invalida para documental";
+                    if (duracionContenido >= 25 && duracionContenido <= 130)
+                    {
+                        ajuste = true;
+                        razon = "Ajustar duración para documental";
+                    }
+                    else
+                    {
+                        valido = false;
+                        razon = "Duración invalida para documental";
+                    }
                 }
             }
 
@@ -111,8 +154,16 @@ do
             {
                 if (!(duracionContenido >= 30 && duracionContenido <= 240))
                 {
-                    valido = false;
-                    razon = "Duración invalida para evento";
+                    if (duracionContenido >= 25 && duracionContenido <= 250)
+                    {
+                        ajuste = true;
+                        razon = "Ajustar duración para evento";
+                    }
+                    else
+                    {
+                        valido = false;
+                        razon = "Duración invalida para evento";
+                    }
                 }
             }
 
@@ -157,6 +208,34 @@ do
             else
             {
                 impactoBajo++;
+            }
+
+
+
+
+            if (impacto == "Alto")
+            {
+                revision++;
+                Console.WriteLine(" ");
+                Console.WriteLine("Enviar a revisión.");
+                Console.WriteLine("Razón: Impacto alto.");
+            }
+            else
+            {
+                publicados++;
+
+
+                if (ajuste)
+                {
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Publicar con ajustes.");
+                    Console.WriteLine("Razón: " + razon);
+                }
+                else
+                {
+                    Console.WriteLine("Publicar.");
+                    Console.WriteLine("Razón: Impacto " + impacto);
+                }
             }
 
 
