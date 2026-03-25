@@ -136,8 +136,30 @@ do
                 Console.WriteLine(" ");
                 Console.WriteLine("Rechazado. ");
                 Console.WriteLine("Razón: " + razon);
-                break;
+                break; //no pasa a impacto, sale del case 1 
             }
+
+
+
+
+            string impacto = "Bajo"; //variable impacto
+
+            if (produccionContenido == "alto" || duracionContenido > 120 || (horaContenido >= 20 && horaContenido <= 23))
+            {
+                impacto = "Alto";
+                impactoAlto++;
+            }
+            else if (produccionContenido == "medio" || (duracionContenido >= 60 && duracionContenido <= 120))
+            {
+                impacto = "Medio";
+                impactoMedio++;
+            }
+            else
+            {
+                impactoBajo++;
+            }
+
+
 
 
             break;
