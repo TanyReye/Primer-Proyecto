@@ -21,6 +21,13 @@ do
     Console.WriteLine("5. Salir. ");
     Console.WriteLine(" ");
 
+
+    while (!int.TryParse(Console.ReadLine(), out menu))
+    {
+        Console.WriteLine("Ingrese un número valido.");
+    }
+
+
     switch (menu)
     {
         case 1: //evaluar nuevo contenido
@@ -40,7 +47,11 @@ do
 
             Console.WriteLine(" ");
             Console.WriteLine("Ingresa duración (en minutos):  ");
-            double duracionContenido = double.Parse(Console.ReadLine());
+            double duracionContenido;
+            while (!double.TryParse(Console.ReadLine(), out duracionContenido))
+            {
+                Console.WriteLine("Ingrese número valido.");
+            }
 
             Console.WriteLine(" ");
             Console.WriteLine("Ingrese clasificación. ");
@@ -50,7 +61,11 @@ do
             Console.WriteLine(" ");
             Console.WriteLine("Ingrese hora programada. ");
             Console.WriteLine("0-23: ");
-            int horaContenido = int.Parse(Console.ReadLine());
+            int horaContenido;
+            while (!int.TryParse(Console.ReadLine(), out horaContenido))
+            {
+                Console.WriteLine("Ingrese número valido.");
+            }
 
             Console.WriteLine(" ");
             Console.WriteLine("Ingrese nivel de producción: ");
@@ -256,7 +271,37 @@ do
 
 
         case 2: //mostrar reglas del sistema
-            Console.WriteLine(" "); //aca pondre las reglas al agregar todo
+
+            Console.WriteLine("REGLAS DEL SISTEMA: ");
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine("1. CLASIFICACIÓN Y HORARIO: ");
+            Console.WriteLine("Todo público: cualquier hora.");
+            Console.WriteLine("+13: entre 6 y 22 horas.");
+            Console.WriteLine("+18: entre 22 y 5 horas.");
+            Console.WriteLine(" ");
+            Console.WriteLine("2. DURACIÓN POR TIPO: ");
+            Console.WriteLine("Película: 60 a 180 minutos.");
+            Console.WriteLine("Serie: 20 a 90 minutos.");
+            Console.WriteLine("Documental: 30 a 120 minutos.");
+            Console.WriteLine("Evento en vivo: 30 a 240 minutos.");
+            Console.WriteLine(" ");
+            Console.WriteLine("3. PRODUCCIÓN:");
+            Console.WriteLine("Producción baja: solo valida para todo público o +13.");
+            Console.WriteLine("Producción media o alta: válida para cualquiera.");
+            Console.WriteLine(" ");
+            Console.WriteLine("4. IMPACTO:");
+            Console.WriteLine("Alto: producción alta, duración mayor a 120 o entre 20 y 23 horas.");
+            Console.WriteLine("Medio: producción media o duración entre 60 y 120 minutos.");
+            Console.WriteLine("Bajo: producción baja y duración menor a 60 minutos.");
+            Console.WriteLine(" ");
+            Console.WriteLine("5. DECISIONES:");
+            Console.WriteLine("Publicar: cumple reglas técnicas e impacto bajo o medio.");
+            Console.WriteLine("Publicar con ajustes: requiere cambios menores.");
+            Console.WriteLine("Enviar a revisión: impacto alto.");
+            Console.WriteLine("Rechazar: incumple reglas obligatorias.");
+
+
             break;
 
             
