@@ -319,3 +319,37 @@ do
 
     }
     } while (menu != 5);
+
+
+Console.WriteLine(" ");
+Console.WriteLine("Resumen final:");
+Console.WriteLine(" ");
+Console.WriteLine("Total evaluados: " + total);
+Console.WriteLine("Publicados: " + publicados);
+Console.WriteLine("Rechazados: " + rechazados);
+Console.WriteLine("En revisión: " + revision);
+
+
+//agregar todo de nuevo
+
+string predominanteFinal = "Bajo";
+
+if (impactoAlto > impactoMedio && impactoAlto > impactoBajo)
+{
+    predominanteFinal = "Alto";
+}
+else if (impactoMedio > impactoBajo)
+{
+    predominanteFinal = "Medio";
+}
+
+Console.WriteLine("Impacto predominante: " + predominanteFinal);
+
+double porcentajeFinal = 0;
+
+if (total > 0)
+{
+    porcentajeFinal = (publicados * 100.0)/total;
+}
+
+Console.WriteLine("Porcentaje de aprobación: " + porcentajeFinal + "%");
