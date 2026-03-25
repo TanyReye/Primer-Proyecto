@@ -36,7 +36,7 @@ do
             Console.WriteLine(" ");
             Console.WriteLine("Ingresa tipo de contenido. ");
             Console.WriteLine("Película, serie, documental o evento en vivo: ");
-            string tipoDeContenido = Console.ReadLine().ToLower();
+            string tipoDeContenido = Console.ReadLine().ToLower(); //convertir a minuscula automaticamente
 
             Console.WriteLine(" ");
             Console.WriteLine("Ingresa duración (en minutos):  ");
@@ -58,13 +58,15 @@ do
             string produccionContenido = Console.ReadLine().ToLower();
 
 
+
             //reglas de publicacion
 
+            //+13
             if (clasificacionContenido == "+13") 
             {
                 if (!(horaContenido >= 6 && horaContenido <= 22)) //no puede ser diferente
                 {
-                    if (horaContenido == 5 || horaContenido == 23)
+                    if (horaContenido == 5 || horaContenido == 23) //ajustes minimos
                     {
                         ajuste = true;
                         razon = "Ajustar horario para +13";
@@ -77,6 +79,7 @@ do
                  }
                 }
 
+            //+18
             if (clasificacionContenido == "+18")
             {
                if (!(horaContenido >= 22 && horaContenido <= 5))
@@ -98,7 +101,9 @@ do
 
 
 
+            //duraciones
 
+            //pelicula
             if (tipoDeContenido == "pelicula" || tipoDeContenido == "película")
             {
                 if (!(duracionContenido >= 60 && duracionContenido <= 180))
@@ -116,6 +121,7 @@ do
                 }
             }
 
+            //serie
             if (tipoDeContenido == "serie")
             {
                 if (!(duracionContenido >= 20 && duracionContenido <= 90))
@@ -133,6 +139,7 @@ do
                 }
             }
 
+            //documental
             if (tipoDeContenido == "documental")
             {
                 if (!(duracionContenido >= 30 && duracionContenido <= 120))
@@ -150,6 +157,7 @@ do
                 }
             }
 
+            //evento en vivo
             if (tipoDeContenido == "evento en vivo")
             {
                 if (!(duracionContenido >= 30 && duracionContenido <= 240))
@@ -168,6 +176,7 @@ do
             }
 
 
+            //produccion 
 
 
             if (produccionContenido == "bajo")
@@ -180,7 +189,7 @@ do
             }
 
 
-
+            //si fue la variable valido se guarda en reechazados
             if (!valido)
             {
                 rechazados++;
